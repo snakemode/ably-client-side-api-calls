@@ -3,8 +3,6 @@ const Ably = require('ably/promises');
 const client = new Ably.Realtime(process.env.ABLY_API_KEY);
 
 const app = express();
-app.use(express.static("public"));
-
 app.get("/", async (request, response) => {
   response.sendFile(__dirname + '/views/index.html');
 });
