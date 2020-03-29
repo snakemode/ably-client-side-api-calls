@@ -15,16 +15,6 @@ app.get("/api/createTokenRequest", async (request, response) => {
   response.send(tokenRequestData);
 });
 
-/*
-async function createTokenRequest(request) {
-  request = request || { clientId: 'trainagotchi' };
-  return new Promise((resolve, reject) => {  
-    client.auth.createTokenRequest(request, function(err, tokenRequest) {    
-        if (err) { reject(err); } else { resolve(tokenRequest); }
-    });
-  });
-}*/
-
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
