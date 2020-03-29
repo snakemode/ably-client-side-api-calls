@@ -11,7 +11,7 @@ app.get("/", async (request, response) => {
 });
 
 app.get("/api/createTokenRequest", async (request, response) => {
-  const tokenRequestData = await client.auth.createTokenRequest({ clientId: 'trainagotchi' });
+  const tokenRequestData = await client.auth.createTokenRequest({ clientId: 'ably-client-side-api-calls-demo' });
   response.send(tokenRequestData);
 });
 

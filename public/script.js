@@ -11,8 +11,8 @@ async function connect() {
     console.log(msg);
   });
   
-  //const resultPage = await channel.history(channel, { untilAttach: true, limit: 1 });
-  //console.log("History retrieved for northern line");
+  const resultPage = await channel.history(channel, { untilAttach: true, limit: 1 });
+  console.log("History retrieved for northern line");
   
   //const recentMessage = resultPage.items[0] || { data: [] }; 
   //console.log(recentMessage.data);
