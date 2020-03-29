@@ -1,6 +1,5 @@
 const express = require("express");
-
-var Ably = require('ably/promises');
+const Ably = require('ably/promises');
 const client = new Ably.Realtime(process.env.ABLY_API_KEY);
 
 const app = express();

@@ -1,5 +1,5 @@
 /*globals Ably */
-console.log("Oh hai! 🖤");
+/*console.log("Oh hai! 🖤");
 const resultsDiv = document.getElementById("history");
 
 async function connect() {
@@ -25,4 +25,4 @@ async function connect() {
   
 }
 
-connect();
+connect();*/

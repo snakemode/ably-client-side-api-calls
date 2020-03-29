@@ -15,6 +15,8 @@
     
     <script src="https://cdn.ably.io/lib/ably.min-1.js"></script>
     <script src="/script.js" defer></script>
+    
+
   </head>
   <body>
     <header>
@@ -26,11 +28,33 @@
       <div id="history" class="historyContainer"></div>
     </main>
 
-    <footer>Made with <a href="https://glitch.com">Glitch</a>!</footer>
+    <script defer>
+      console.log("Oh hai! 🖤");
+      const resultsDiv = document.getElementById("history");
 
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:2em;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js"></script>
+      async function connect() {
+        const ably = new Ably.Realtime.Promise({ authUrl: '/api/createTokenRequest' });
+        const channelId = `[product:ably-tfl/tube]tube:northern:940GZZLUKSX:arrivals`;
+        const channel = await ably.channels.get(channelId);
+        await channel.attach();
+
+        channel.subscribe(msg => {
+          console.log(msg);
+        });
+
+        const resultPage = await channel.history(); 
+
+        for (const item of resultPage.items) {
+
+          const result = document.createElement("div");
+          result.classList.add("item");
+          result.innerHTML = JSON.stringify(item);
+          resultsDiv.appendChild(result);
+        }
+      }
+
+      connect();    
+    </script>    
+    
   </body>
 </html>
