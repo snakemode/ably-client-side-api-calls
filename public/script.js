@@ -1,5 +1,6 @@
 /*globals Ably */
 console.log("Oh hai! 🖤");
+const resultsDiv = document.getElementById("history");
 
 async function connect() {
   const ably = new Ably.Realtime.Promise({ authUrl: '/api/createTokenRequest' });
@@ -11,11 +12,16 @@ async function connect() {
     console.log(msg);
   });
   
-  const resultPage = await channel.history();
-  console.log("History retrieved for northern line");  
-  console.log(resultPage);
+  const resultPage = await channel.history(); 
   
-  
+  for (const item of resultPage.items) {
+    
+    const result = document.createElement("div");
+    result.classList.add("item");
+    result.innerHTML = JSON.stringify(item);
+    resultsDiv.appendChild(result);
+    
+  }
   
 }
 
