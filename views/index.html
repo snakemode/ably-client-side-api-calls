@@ -12,33 +12,17 @@
 
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css">
-
-    <!-- import the webpage's client-side javascript file -->
+    
+    <script src="https://cdn.ably.io/lib/ably.min-1.js"></script>
     <script src="/script.js" defer></script>
   </head>
   <body>
     <header>
-      <h1>A Dream of the Future</h1>
+      <h1>Ably Promises API demo with client side auth.</h1>
     </header>
 
     <main>
       <h2>Oh hi,</h2>
-
-      <p>Tell me your hopes and dreams:</p>
-
-      <form>
-        <label>
-          New Dream
-          <input name="dream" type="text" maxlength="100" required placeholder="Dreams!">
-        </label>
-        <button type="submit" id="submit-dream">Add Dream</button>
-      </form>
-
-      <section class="dreams">
-        <ul id="dreams">
-          <em>loading dreams&hellip;</em>
-        </ul>
-      </section>
     </main>
 
     <footer>Made with <a href="https://glitch.com">Glitch</a>!</footer>
