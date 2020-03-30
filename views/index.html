@@ -36,7 +36,9 @@
         const channel = await ably.channels.get(channelId);
         //await channel.attach();
         
-        channel.subscribe(msg => console.log(msg)); 
+        channel.subscribe(function(message) {
+          alert(message.data);
+        }); 
         console.log("Subscribed");
         
         /*const resultPage = await channel.history(); 
