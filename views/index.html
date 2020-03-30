@@ -34,16 +34,19 @@
         const ably = new Ably.Realtime.Promise({ authUrl: '/api/createTokenRequest' });
         const channelId = `[product:ably-tfl/tube]tube:northern:940GZZLUKSX:arrivals`;
         const channel = await ably.channels.get(channelId);
-        await channel.attach();
+        //await channel.attach();
         
-        const resultPage = await channel.history(); 
+        channel.subscribe(msg => console.log(msg)); 
+        console.log("Subscribed");
+        
+        /*const resultPage = await channel.history(); 
 
         for (const item of resultPage.items) {
           const result = document.createElement("div");
           result.classList.add("item");
           result.innerHTML = JSON.stringify(item);
           resultsDiv.appendChild(result);
-        }
+        }*/
       }
 
       connect();    
