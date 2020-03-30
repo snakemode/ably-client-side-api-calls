@@ -34,7 +34,7 @@
         const ably = new Ably.Realtime.Promise({ authUrl: '/api/createTokenRequest' });
         const channelId = `[product:ably-tfl/tube]tube:northern:940GZZLUEUS:arrivals`;
         const channel = await ably.channels.get(channelId);
-        //await channel.attach();
+        await channel.attach();
         
         channel.subscribe(function(message) {
           alert(message.data);
