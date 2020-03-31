@@ -41,14 +41,14 @@
         }); 
         console.log("Subscribed");
         
-        /*const resultPage = await channel.history(); 
+        const resultPage = await channel.history({ untilAttach: true, limit: 1 }); 
 
         for (const item of resultPage.items) {
           const result = document.createElement("div");
           result.classList.add("item");
           result.innerHTML = JSON.stringify(item);
           resultsDiv.appendChild(result);
-        }*/
+        }
       }
 
       connect();    
