@@ -30,7 +30,7 @@
       
       const resultsDiv = document.getElementById("history");
 
-      async function connect() {
+      /*async function connect() {
         const ably = new Ably.Realtime.Promise({ authUrl: '/api/createTokenRequest' });
         const channelId = `[product:ably-tfl/tube]tube:northern:940GZZLUEUS:arrivals`;
         const channel = await ably.channels.get(channelId);
@@ -51,7 +51,45 @@
         }
       }
 
-      connect();    
+      connect();  */  
+      
+      
+      
+      function connect() {
+        
+        console.log("connecting");
+        
+        const ably = new Ably.Realtime({ authUrl: '/api/createTokenRequest' });
+        const channelId = `[product:ably-tfl/tube]tube:northern:940GZZLUEUS:arrivals`;
+        
+        console.log("let's get a channel")
+        
+        ably.channels.get(channelId, (err, channel) => {
+            channel.attach((err, r) => {
+              
+              console.log("attaching");
+              
+                channel.subscribe((message) => {
+                  console.log(message.data);
+                }); 
+              
+                
+                const resultPage = channel.history({ untilAttach: true, limit: 1 }, (err, resultPage) => {
+                  
+                    for (const item of resultPage.items) {
+                      const result = document.createElement("div");
+                      result.classList.add("item");
+                      result.innerHTML = JSON.stringify(item);
+                      resultsDiv.appendChild(result);
+                    }
+                });
+            });
+        });
+        
+      }
+      
+      connect();
+      
     </script>    
     
   </body>
