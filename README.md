@@ -12,6 +12,7 @@ Because we're using the `Promises` API, we can use async/await in our JavaScript
 
 ## To run this demo
 ```bs
+npm install
 npm start
 ```
 
