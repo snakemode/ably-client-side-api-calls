@@ -32,6 +32,7 @@ Make sure you have a `.env` file that looks something like this
 
 ```bash
 ABLY_API_KEY=yourably:apikeyhere
+PORT=3000
 ```
 Next, we create our express instance and map the default route to serve our `views/index.html` file.
 
