@@ -10,6 +10,11 @@ For the purposes of the demo, we request some `TFL Tube Data` and display the hi
 
 Because we're using the `Promises` API, we can use async/await in our JavaScript code that runs in the browser.
 
+## To run this demo
+```bs
+npm start
+```
+
 
 ## How it works
 
